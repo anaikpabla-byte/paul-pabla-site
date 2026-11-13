@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
 <style>
-/* Layout: full-screen dusk skyline hero with oversized type, a centred statement, ruled area filter + listing rows, a deep green numbers band, lender sales, help, contact. */
+/* Layout: full-screen dusk skyline hero with oversized type, a centred statement, ruled area filter + listing rows, a deep green numbers band, help, contact. */
 :root {
   --bg: #ffffff;
   --ink: #17181a;
@@ -157,7 +157,6 @@ a { color: inherit; }
 .chip-btn[aria-pressed="true"] .n { color: inherit; opacity: .7; }
 .sort { display: flex; align-items: center; gap: 10px; color: var(--muted); font-weight: 500; }
 .sort select { min-height: 40px; padding: 0 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font: 500 .95rem var(--f-sans); }
-.pos-link { margin-top: 28px; color: var(--muted); }
 .list-foot { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; }
 .asof { color: var(--muted); font-size: .88rem; }
 
@@ -174,26 +173,6 @@ a { color: inherit; }
   .fig-grid > div:nth-child(3) { border-left: 0; }
   .fig-grid > div:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,.22); }
 }
-
-/* lender sales */
-.pos { padding-block: clamp(72px, 10vw, 140px); }
-.sec-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px 48px; margin-bottom: 28px; }
-.sec-head .kicker { margin-bottom: 14px; }
-.sec-head > p { color: var(--muted); max-width: 46ch; }
-.pos .note { margin-bottom: 28px; }
-.pos-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
-@media (max-width: 900px) { .pos-grid { grid-template-columns: minmax(0, 1fr); max-width: 560px; } }
-.pcard img { width: 100%; aspect-ratio: 4 / 3; max-width: 100%; object-fit: cover; display: block; border-radius: 4px; }
-.pc-body { padding-top: 16px; display: grid; gap: 4px; }
-.pc-area { color: var(--muted); font-size: .9rem; }
-.pc-price { font-size: 1.5rem; font-weight: 500; font-variant-numeric: tabular-nums; }
-.pc-addr { font-weight: 500; }
-.pc-specs { color: var(--muted); font-variant-numeric: tabular-nums; }
-.points { margin-top: clamp(48px, 6vw, 80px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
-@media (max-width: 860px) { .points { grid-template-columns: minmax(0, 1fr); } }
-.points div { border-top: 1px solid var(--ink); padding-top: 18px; }
-.points b { display: block; font-weight: 500; font-size: 1.15rem; margin-bottom: 6px; }
-.points span { color: var(--muted); }
 
 /* help + about */
 .help { background: var(--soft); padding-block: clamp(72px, 10vw, 140px); }
@@ -345,38 +324,6 @@ footer { background: var(--deep); color: var(--on-deep); padding-block: 64px 48p
     </div>
   </section>
 
-  <section class="pos" id="pos">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <p class="kicker">Power of sale</p>
-          <h2>Three <em>lender</em> sales</h2>
-        </div>
-        <p>The lender is the seller on all three. Offers go through MLS® as usual, with the lender's schedule attached.</p>
-      </div>
-      <div class="note" role="note"><b>Check before this goes public:</b> REALTOR.ca does not list these three under Paul. Confirm he is an agent on them, and get the listing brokerage's written OK to show them.</div>
-      <div class="pos-grid reveal">
-        <article class="pcard">
-          <img src="img/rosebank.jpg" alt="Front of 363 Rosebank Road, a three-storey stone and stucco custom home" width="1040" height="693" loading="lazy">
-          <div class="pc-body"><span class="pc-area">Pickering, ON · MLS® E13874286</span><span class="pc-price">$1,749,000</span><span class="pc-addr">363 Rosebank Road</span><span class="pc-specs">4+1 beds · 5 baths · 3,500+ sq ft</span></div>
-        </article>
-        <article class="pcard">
-          <img src="img/hooper.jpg" alt="Front of 201 Hooper Street, a brick and stone townhouse with a black garage door" width="1040" height="693" loading="lazy">
-          <div class="pc-body"><span class="pc-area">St. Marys, ON · MLS® X13834446</span><span class="pc-price">$529,000</span><span class="pc-addr">201 Hooper Street</span><span class="pc-specs">3 beds · 2 baths · 1,100–1,500 sq ft</span></div>
-        </article>
-        <article class="pcard">
-          <img src="img/dominion.jpg" alt="Front of 725 Dominion Road, a sage-sided detached home with a wide wooden deck" width="1040" height="693" loading="lazy">
-          <div class="pc-body"><span class="pc-area">Fort Erie, ON · MLS® X13841366</span><span class="pc-price">$399,000</span><span class="pc-addr">725 Dominion Road</span><span class="pc-specs">3 beds · 1 bath · 1,100+ sq ft</span></div>
-        </article>
-      </div>
-      <div class="points reveal">
-        <div><b>The lender is the seller.</b><span>Decisions are made on business terms. A strong offer gets a clear answer.</span></div>
-        <div><b>Quick closings are possible.</b><span>There is no owner to move out and no sale-of-home condition.</span></div>
-        <div><b>It is a normal MLS® sale.</b><span>No auction and no courtroom. Offers go in through MLS® with the lender's schedule attached.</span></div>
-      </div>
-    </div>
-  </section>
-
   <section class="help" id="help">
     <div class="wrap">
       <div>
@@ -386,7 +333,6 @@ footer { background: var(--deep); color: var(--on-deep); padding-block: 64px 48p
       <div>
         <div class="help-row"><h3>Buying a home</h3><p>Tell Paul what you need and your budget. He finds homes that fit, books the showings, and writes and negotiates your offer.</p></div>
         <div class="help-row"><h3>Selling your home</h3><p>Paul shows you what similar homes nearby have sold for, sets a price with you, and lists your home on MLS® so every agent can bring a buyer.</p></div>
-        <div class="help-row"><h3>Power-of-sale homes</h3><p>Buying from a lender works a little differently. Paul can explain the lender's schedule, how offers are reviewed, and how quickly you can close.</p></div>
       </div>
     </div>
   </section>
@@ -463,7 +409,6 @@ footer { background: var(--deep); color: var(--on-deep); padding-block: 64px 48p
         <a class="btn btn-outline" href="https://www.realtor.ca/agent/2025830/paul-pabla-11a-5010-steeles-ave-west-toronto-ontario-m9v5c6" target="_blank" rel="noopener">Paul's profile on REALTOR.ca ↗</a>
         <p class="asof">Listing details and photos from Paul's REALTOR.ca listings on November 13, 2026. Prices and availability can change.</p>
       </div>
-      <p class="pos-link">Looking for the three power-of-sale homes? <a href="#pos">See them on the home page</a>.</p>
     </div>
   </main>
 </div>
@@ -473,7 +418,7 @@ footer { background: var(--deep); color: var(--on-deep); padding-block: 64px 48p
     <div class="foot-top">
       <div class="foot-brand"><img src="img/logo.png" alt="" width="52" height="52"><div><b>Paul Pabla</b><span>Sales Representative</span></div></div>
       <div class="foot-cols">
-        <div><p class="fh">Listings</p><a href="#homes">All homes</a><a href="#pos">Power of sale</a><a href="https://www.realtor.ca/agent/2025830/paul-pabla-11a-5010-steeles-ave-west-toronto-ontario-m9v5c6" target="_blank" rel="noopener">REALTOR.ca profile ↗</a></div>
+        <div><p class="fh">Listings</p><a href="#homes">All homes</a><a href="https://www.realtor.ca/agent/2025830/paul-pabla-11a-5010-steeles-ave-west-toronto-ontario-m9v5c6" target="_blank" rel="noopener">REALTOR.ca profile ↗</a></div>
         <div><p class="fh">Brokerage</p><p>HomeLife/Miracle Realty Ltd., Brokerage<br>11A-5010 Steeles Ave. West<br>Toronto, ON M9V 5C6<br>Office 416-747-9777</p></div>
         <div><p class="fh">Contact</p><a href="tel:+14165643222">416-564-3222</a><a href="mailto:paulpablarealty@gmail.com">paulpablarealty@gmail.com</a></div>
       </div>
