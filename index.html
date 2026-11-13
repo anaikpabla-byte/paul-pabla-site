@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Paul Pabla Realty">
+<meta property="og:description" content="Homes for sale in Toronto and across the GTA. Paul Pabla, Sales Representative, HomeLife/Miracle Realty Ltd., Brokerage.">
+<meta property="og:image" content="https://anaikpabla-byte.github.io/paul-pabla-site/img/toronto-dusk.jpg">
+<meta property="og:url" content="https://anaikpabla-byte.github.io/paul-pabla-site/">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Paul Pabla Realty</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Paul Pabla, Sales Representative, HomeLife/Miracle Realty Ltd., Brokerage. Homes for sale in Toronto and across the GTA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+/* Layout: full-screen dusk skyline hero with oversized type, a centred statement, ruled area filter + listing rows, a deep green numbers band, lender sales, help, contact. */
+:root {
+  --bg: #ffffff;
+  --ink: #17181a;
+  --muted: #5f6366;
+  --line: #e1e4e2;
+  --soft: #f3f5f4;
+  --deep: #1d3a33;        /* Paul's logo green, deepened */
+  --on-deep: #f1f6f3;
+  --on-deep-muted: #a9c2b9;
+  --lime: #d4ee5e;        /* logo roofline */
+  --on-photo: #ffffff;    /* hero sits on a dark drawing in both themes */
+  --draft: #fff6d6;
+  --draft-line: #e3c766;
+  --f-sans: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --f-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f1213; --ink: #eceeed; --muted: #9aa19e; --line: #272c2b; --soft: #161a1a;
+  --deep: #15302a; --draft: #2e2a17; --draft-line: #7a6a2c; color-scheme: dark;
+} }
+:root[data-theme="dark"] {
+  --bg: #0f1213; --ink: #eceeed; --muted: #9aa19e; --line: #272c2b; --soft: #161a1a;
+  --deep: #15302a; --draft: #2e2a17; --draft-line: #7a6a2c; color-scheme: dark;
+}
+
+[hidden] { display: none !important; }
+body { background: var(--bg); color: var(--ink); font: 400 17px/1.55 var(--f-sans); }
+.wrap { max-width: 1320px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+@media (min-width: 900px) { .wrap { padding-left: max(48px, env(safe-area-inset-left, 0px)); padding-right: max(48px, env(safe-area-inset-right, 0px)); } }
+h1, h2, h3, p { margin: 0; }
+h1, h2 { font-weight: 500; letter-spacing: -.03em; text-wrap: balance; }
+h2 { font-size: clamp(2.3rem, 4.6vw, 3.8rem); line-height: 1.02; }
+em { font-family: var(--f-serif); font-style: italic; font-weight: 400; letter-spacing: -.01em; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
+.kicker { font-size: .8rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.note { background: var(--draft); border: 1.5px dashed var(--draft-line); border-radius: 8px; padding: 12px 16px; font-size: .92rem; color: var(--ink); }
+.draft-strip { background: var(--draft); border-bottom: 1px solid var(--draft-line); font-size: .85rem; }
+.draft-strip .wrap { padding-block: 6px; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 22px; border-radius: 8px; font: 500 1rem/1 var(--f-sans); text-decoration: none; border: 1px solid transparent; cursor: pointer; white-space: nowrap; background: none; color: inherit; }
+.btn-solid { background: var(--ink); color: var(--bg); }
+.btn-outline { border-color: var(--line); }
+.btn-outline:hover { border-color: var(--ink); }
+
+/* hero */
+.hero { position: relative; min-height: max(620px, min(100vh, 1040px)); display: flex; flex-direction: column; color: var(--on-photo); background: #17161b; overflow: hidden; }
+/* still frame first; the dusk time-lapse fades in over it once it can play */
+.hero-media { position: absolute; inset: 0; overflow: hidden; }
+.hero-media .pan, .hero-media .zoom { position: absolute; inset: 0; }
+.hero-media .zoom { transform-origin: 50% 30%; }
+.hero-media img, .hero-media video { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 50% 20%; display: block; }
+@media (max-width: 760px) { .hero-media img, .hero-media video { object-position: 43% 20%; } } /* keeps the CN Tower in a tall phone crop */
+.hero-media video { opacity: 0; }
+.hero-media video.on { opacity: 1; transition: opacity 1.6s linear; }
+.hero-media video.top { z-index: 2; }
+.hero .shade { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(12,10,16,.5), rgba(12,10,16,0) 24%), linear-gradient(to top, rgba(12,10,16,.9), rgba(12,10,16,0) 64%), linear-gradient(to right, rgba(12,10,16,.45), rgba(12,10,16,0) 60%); }
+.ln { display: block; overflow: hidden; padding: .08em .12em .17em 0; margin: -.08em 0 -.17em; }
+.ln > span { display: block; }
+.hero > .wrap { width: 100%; box-sizing: border-box; } /* auto side margins would shrink a column-flex child to its content */
+.nav { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 24px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand img { width: 40px; height: 40px; }
+.brand span { font: 400 1.7rem/1 var(--f-serif); letter-spacing: -.01em; }
+.nav .links { display: flex; gap: clamp(20px, 5vw, 72px); font-weight: 500; }
+.nav .links a { text-decoration: none; }
+.nav .links a:hover { text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 760px) { .nav .links { gap: 18px; } .nav .links .opt { display: none; } .brand span { font-size: 1.35rem; } .brand img { width: 34px; height: 34px; } }
+.hero-body { position: relative; margin-top: auto; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 32px; padding-block: 24px 48px; }
+.hero h1 { font-size: clamp(3.1rem, 8.6vw, 7.4rem); line-height: .94; }
+.hero h1 em { font-size: 1.04em; }
+.hero-text p { margin-top: 26px; font-size: 1.15rem; font-weight: 500; max-width: 30ch; }
+.hero-side { width: min(320px, 100%); display: grid; gap: 10px; }
+.glance { display: grid; gap: 6px; padding: 22px; background: rgba(26,22,24,.74); backdrop-filter: blur(6px); border-radius: 4px; text-decoration: none; }
+.glance .kicker { color: #d9d2cc; text-transform: none; letter-spacing: 0; font-size: .92rem; }
+.glance b { font-size: 1.35rem; font-weight: 500; line-height: 1.2; }
+.glance span { color: #d9d2cc; font-variant-numeric: tabular-nums; }
+.btn-white { background: #ffffff; color: #17181a; min-height: 64px; border-radius: 10px; font-size: 1.08rem; }
+
+/* statement */
+.statement { padding-block: clamp(80px, 12vw, 170px); text-align: center; }
+.statement .kicker { margin-bottom: 28px; }
+.big-line { font-size: clamp(2rem, 4.7vw, 4rem); line-height: 1.14; font-weight: 500; letter-spacing: -.03em; max-width: 21ch; margin: 0 auto; text-wrap: balance; }
+.chip { display: inline-block; vertical-align: middle; font: 500 .32em/1 var(--f-sans); letter-spacing: 0; padding: .7em 1em; border-radius: 999px; background: var(--deep); color: var(--lime); transform: translateY(-.15em); }
+
+/* areas + listings */
+.areas { padding-block: 0 clamp(72px, 10vw, 140px); }
+.area-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); align-items: stretch; }
+@media (max-width: 860px) { .area-top { grid-template-columns: minmax(0, 1fr); } }
+.area-list { margin-top: 36px; display: grid; max-width: 440px; }
+.area-btn { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 15px 0; border: 0; border-bottom: 1px solid var(--line); background: none; color: var(--ink); font: 400 1.25rem/1.2 var(--f-sans); text-align: left; cursor: pointer; }
+.area-btn .n { color: var(--muted); font-size: 1rem; font-variant-numeric: tabular-nums; }
+.area-btn:hover, .area-btn:focus-visible { border-bottom-color: var(--ink); }
+.area-btn:hover .n, .area-btn:focus-visible .n { color: var(--ink); }
+.panel { background: var(--deep); color: var(--on-deep); padding: clamp(28px, 4vw, 48px); display: grid; align-content: end; gap: 8px; min-height: 360px; border-radius: 4px; }
+.panel .kicker { color: var(--on-deep-muted); }
+.panel .p-name { font-size: 1.5rem; font-weight: 500; }
+.panel .p-count { font-size: clamp(3.6rem, 8vw, 6.4rem); line-height: 1; font-weight: 400; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.panel .p-count em { font-size: .5em; color: var(--lime); margin-left: .15em; }
+.panel .p-range { font-size: 1.2rem; font-variant-numeric: tabular-nums; }
+.panel .p-towns { color: var(--on-deep-muted); }
+/* photo cards */
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 24px; }
+@media (max-width: 1000px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .cards { grid-template-columns: minmax(0, 1fr); } }
+.card { display: grid; gap: 4px; align-content: start; text-decoration: none; min-width: 0; }
+/* every photo sits in the same 4:3 frame; one with another shape is shown whole over a blurred copy of itself, never stretched or cut */
+.ph { position: relative; display: block; aspect-ratio: 4 / 3; max-width: 100%; overflow: hidden; border-radius: 4px; background: var(--soft) center / cover no-repeat; margin-bottom: 12px; }
+.ph img { position: relative; width: 100%; height: 100%; max-width: none; object-fit: cover; display: block; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.ph.fit::before { content: ""; position: absolute; inset: -24px; background: inherit; filter: blur(22px) brightness(.75); }
+.ph.fit img { object-fit: contain; }
+.card:hover .ph img { transform: scale(1.04); }
+.c-area { color: var(--muted); font-size: .9rem; }
+.c-price { font-size: 1.5rem; font-weight: 500; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+.c-addr { font-weight: 500; font-size: 1.08rem; }
+.c-specs { color: var(--muted); font-variant-numeric: tabular-nums; }
+.c-go { margin-top: 6px; font-weight: 500; font-size: .95rem; }
+.card:hover .c-go { text-decoration: underline; text-underline-offset: 4px; }
+.feat-head { margin-top: clamp(48px, 7vw, 88px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; margin-bottom: 28px; }
+.feat-head h3 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); font-weight: 500; letter-spacing: -.02em; margin: 0; }
+
+/* all-listings page */
+.bar { background: var(--deep); color: var(--on-deep); }
+.bar .links a[aria-current] { text-decoration: underline; text-underline-offset: 6px; }
+.all { padding-block: clamp(32px, 5vw, 64px) clamp(72px, 10vw, 140px); }
+.all .back { display: inline-block; margin-bottom: 28px; text-decoration: none; color: var(--muted); font-weight: 500; }
+.all .back:hover { color: var(--ink); }
+.all .kicker { margin-bottom: 14px; }
+.all h1 { font-size: clamp(2.6rem, 6.4vw, 5.2rem); line-height: 1; }
+.all-sum { margin-top: 16px; color: var(--muted); font-size: 1.15rem; font-variant-numeric: tabular-nums; }
+.tools { margin: clamp(28px, 4vw, 48px) 0 32px; display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: center; justify-content: space-between; padding-block: 16px; border-block: 1px solid var(--line); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip-btn { min-height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line); background: none; color: var(--ink); font: 500 .95rem/1 var(--f-sans); cursor: pointer; white-space: nowrap; }
+.chip-btn .n { color: var(--muted); margin-left: 6px; font-variant-numeric: tabular-nums; }
+.chip-btn:hover { border-color: var(--ink); }
+.chip-btn[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.chip-btn[aria-pressed="true"] .n { color: inherit; opacity: .7; }
+.sort { display: flex; align-items: center; gap: 10px; color: var(--muted); font-weight: 500; }
+.sort select { min-height: 40px; padding: 0 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font: 500 .95rem var(--f-sans); }
+.pos-link { margin-top: 28px; color: var(--muted); }
+.list-foot { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; }
+.asof { color: var(--muted); font-size: .88rem; }
+
+/* numbers band */
+.figures { background: var(--deep); color: var(--on-deep); padding-block: clamp(72px, 10vw, 140px); text-align: center; }
+.figures .kicker { color: var(--on-deep-muted); margin-bottom: 24px; }
+.fig-grid { margin-top: clamp(48px, 7vw, 96px); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.fig-grid > div { padding: 28px 16px; display: grid; gap: 10px; border-left: 1px solid rgba(255,255,255,.22); }
+.fig-grid > div:first-child { border-left: 0; }
+.fig-grid b { font-size: clamp(2.8rem, 6vw, 5.4rem); font-weight: 400; line-height: 1; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.fig-grid span { font-weight: 500; color: var(--on-deep-muted); }
+@media (max-width: 760px) {
+  .fig-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fig-grid > div:nth-child(3) { border-left: 0; }
+  .fig-grid > div:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,.22); }
+}
+
+/* lender sales */
+.pos { padding-block: clamp(72px, 10vw, 140px); }
+.sec-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px 48px; margin-bottom: 28px; }
+.sec-head .kicker { margin-bottom: 14px; }
+.sec-head > p { color: var(--muted); max-width: 46ch; }
+.pos .note { margin-bottom: 28px; }
+.pos-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+@media (max-width: 900px) { .pos-grid { grid-template-columns: minmax(0, 1fr); max-width: 560px; } }
+.pcard img { width: 100%; aspect-ratio: 4 / 3; max-width: 100%; object-fit: cover; display: block; border-radius: 4px; }
+.pc-body { padding-top: 16px; display: grid; gap: 4px; }
+.pc-area { color: var(--muted); font-size: .9rem; }
+.pc-price { font-size: 1.5rem; font-weight: 500; font-variant-numeric: tabular-nums; }
+.pc-addr { font-weight: 500; }
+.pc-specs { color: var(--muted); font-variant-numeric: tabular-nums; }
+.points { margin-top: clamp(48px, 6vw, 80px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+@media (max-width: 860px) { .points { grid-template-columns: minmax(0, 1fr); } }
+.points div { border-top: 1px solid var(--ink); padding-top: 18px; }
+.points b { display: block; font-weight: 500; font-size: 1.15rem; margin-bottom: 6px; }
+.points span { color: var(--muted); }
+
+/* help + about */
+.help { background: var(--soft); padding-block: clamp(72px, 10vw, 140px); }
+.help .wrap { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 48px; }
+@media (max-width: 860px) { .help .wrap { grid-template-columns: minmax(0, 1fr); } }
+.help .kicker { margin-bottom: 14px; }
+.help-row { display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 8px 32px; padding-block: 24px; border-top: 1px solid var(--line); }
+.help-row:last-child { border-bottom: 1px solid var(--line); }
+@media (max-width: 600px) { .help-row { grid-template-columns: minmax(0, 1fr); } }
+.help-row h3 { font-size: 1.25rem; font-weight: 500; }
+.help-row p { color: var(--muted); }
+.about { padding-block: clamp(72px, 10vw, 140px); }
+.about .wrap { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
+@media (max-width: 640px) { .about .wrap { grid-template-columns: minmax(0, 1fr); } }
+.about img { width: 200px; height: 200px; max-width: 100%; border-radius: 28px; }
+.about .copy { max-width: 60ch; display: grid; gap: 18px; }
+.about .copy p { font-size: 1.15rem; }
+
+/* contact */
+.contact { border-top: 1px solid var(--line); padding-block: clamp(72px, 10vw, 140px); }
+.contact .big-line { text-align: left; margin: 0; max-width: 16ch; }
+.ways { margin-top: clamp(40px, 6vw, 72px); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 48px; }
+@media (max-width: 760px) { .ways { grid-template-columns: minmax(0, 1fr); } }
+.way { border-top: 1px solid var(--ink); padding-top: 20px; display: grid; gap: 14px; min-width: 0; }
+.way small { color: var(--muted); font-size: .85rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; }
+.way .value { font-size: clamp(1.5rem, 3.6vw, 2.4rem); font-weight: 500; letter-spacing: -.02em; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.way .row-btns { display: flex; flex-wrap: wrap; gap: 10px; }
+
+footer { background: var(--deep); color: var(--on-deep); padding-block: 64px 48px; font-size: .92rem; }
+.foot-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,.18); }
+@media (max-width: 860px) { .foot-top { grid-template-columns: minmax(0, 1fr); } }
+.foot-brand { display: flex; gap: 14px; align-items: center; }
+.foot-brand img { width: 52px; height: 52px; }
+.foot-brand b { display: block; font: 400 1.8rem/1 var(--f-serif); }
+.foot-brand span { color: var(--on-deep-muted); }
+.foot-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+@media (max-width: 600px) { .foot-cols { grid-template-columns: minmax(0, 1fr); } }
+.foot-cols .fh { color: var(--on-deep-muted); font-size: .8rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
+.foot-cols a { display: block; text-decoration: none; padding-block: 3px; overflow-wrap: anywhere; }
+.foot-cols a:hover { text-decoration: underline; }
+.foot-legal { padding-top: 28px; display: grid; gap: 12px; color: var(--on-deep-muted); }
+.foot-legal .chip-logo { background: #ffffff; border-radius: 8px; padding: 6px 10px; display: inline-flex; justify-self: start; }
+.foot-legal .chip-logo img { width: 110px; height: auto; display: block; }
+.foot-legal p { max-width: 90ch; }
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+  /* the footage settles in, then keeps pushing in slowly like aerial video */
+  .hero-media .zoom { animation: settle 2.8s cubic-bezier(.2,.7,.2,1) both, drift 26s ease-in-out 2.8s infinite alternate; }
+  @keyframes settle { from { transform: scale(1.16); } to { transform: scale(1.02); } }
+  @keyframes drift { from { transform: scale(1.02); } to { transform: scale(1.08); } }
+  /* headline lines slide up from behind a mask */
+  .ln > span { animation: line-up 1.15s cubic-bezier(.2,.7,.2,1) .25s both; }
+  .ln + .ln > span { animation-delay: .4s; }
+  @keyframes line-up { from { transform: translateY(112%); } to { transform: none; } }
+  .nav, .hero-text p, .hero-side { animation: rise 1s cubic-bezier(.2,.7,.2,1) both; }
+  .hero-text p { animation-delay: .75s; }
+  .hero-side { animation-delay: .9s; }
+  @keyframes rise { from { transform: translateY(22px); opacity: 0; } to { transform: none; opacity: 1; } }
+  @supports (animation-timeline: view()) {
+    /* tied to scrolling: the photo lags behind the page, sections lift into place as they enter */
+    .hero-media .pan { animation: lag linear both; animation-timeline: scroll(root); animation-range: 0 100vh; }
+    @keyframes lag { to { transform: translateY(18%); } }
+    .reveal, .card { animation: lift linear both; animation-timeline: view(); animation-range: entry 0% entry 70%; }
+    @keyframes lift { from { transform: translateY(64px); } to { transform: none; } }
+  }
+}
+</style>
+
+<div class="draft-strip" role="note"><div class="wrap">Draft preview for Paul. Not public yet.</div></div>
+
+<div id="view-home">
+<header class="hero" id="top">
+  <div class="hero-media"><div class="pan"><div class="zoom">
+    <img src="img/toronto-dusk.jpg" alt="Downtown Toronto and the CN Tower under a pink sky at dusk" width="1280" height="720" fetchpriority="high">
+    <video muted playsinline preload="none" aria-hidden="true" tabindex="-1" disablepictureinpicture></video>
+    <video muted playsinline preload="none" aria-hidden="true" tabindex="-1" disablepictureinpicture></video>
+  </div></div></div>
+  <div class="shade"></div>
+  <nav class="nav wrap" aria-label="Main">
+    <a class="brand" href="#top"><img src="img/logo.png" alt="" width="40" height="40"><span>Paul Pabla</span></a>
+    <div class="links">
+      <a href="#homes">Listings</a>
+      <a class="opt" href="#help">Buy &amp; sell</a>
+      <a class="opt" href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+  <div class="hero-body wrap">
+    <div class="hero-text">
+      <h1><span class="ln"><span>Buying or selling</span></span><span class="ln"><span>in <em>Toronto?</em></span></span></h1>
+      <p>Paul Pabla, Sales Representative<br>HomeLife/Miracle Realty Ltd., Brokerage</p>
+    </div>
+    <div class="hero-side">
+      <a class="glance" href="#homes">
+        <span class="kicker">On REALTOR.ca now</span>
+        <b><span id="h-count">15</span> homes for sale</b>
+        <span id="h-range">$749K to $2.1M</span>
+      </a>
+      <a class="btn btn-white" href="tel:+14165643222">Call Paul · 416-564-3222</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="statement">
+    <div class="wrap">
+      <p class="kicker">What Paul does</p>
+      <p class="big-line reveal">From <em>Whitby</em> <span class="chip">$749K</span> to <em>Pine Grove</em> <span class="chip">5,000+ sq ft</span>, Paul has homes for sale across Toronto, York, Durham and beyond.</p>
+    </div>
+  </section>
+
+  <section class="areas" id="listings">
+    <div class="wrap">
+      <div class="area-top reveal">
+        <div>
+          <h2>Explore by <em>area</em></h2>
+          <div class="area-list" id="area-list" role="group" aria-label="See listings by area"></div>
+        </div>
+        <div class="panel" aria-live="polite">
+          <p class="kicker">For sale now</p>
+          <p class="p-name" id="p-name">All areas</p>
+          <p class="p-count"><span id="p-count">15</span><em>homes</em></p>
+          <p class="p-range" id="p-range">$749K to $2.1M</p>
+          <p class="p-towns" id="p-towns"></p>
+        </div>
+      </div>
+      <div class="feat-head">
+        <h3>Newest <em>listings</em></h3>
+        <a class="btn btn-solid" href="#homes"><span>View all <span id="a-count">15</span> homes →</span></a>
+      </div>
+      <div class="cards" id="featured"></div>
+      <div class="list-foot">
+        <a class="btn btn-outline" href="https://www.realtor.ca/agent/2025830/paul-pabla-11a-5010-steeles-ave-west-toronto-ontario-m9v5c6" target="_blank" rel="noopener">Paul's profile on REALTOR.ca ↗</a>
+        <p class="asof">Listing details and photos from Paul's REALTOR.ca listings on November 13, 2026. Prices and availability can change.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="figures">
+    <div class="wrap">
+      <p class="kicker">At a glance</p>
+      <h2>Paul's listings, in <em>numbers</em></h2>
+      <div class="fig-grid reveal">
+        <div><b id="f-count">15</b><span>Homes for sale now</span></div>
+        <div><b id="f-towns">9</b><span>Towns and cities</span></div>
+        <div><b id="f-low">$749K</b><span>Lowest asking price</span></div>
+        <div><b>3</b><span>Languages: English, Punjabi, Hindi</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pos" id="pos">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="kicker">Power of sale</p>
+          <h2>Three <em>lender</em> sales</h2>
+        </div>
+        <p>The lender is the seller on all three. Offers go through MLS® as usual, with the lender's schedule attached.</p>
+      </div>
+      <div class="note" role="note"><b>Check before this goes public:</b> REALTOR.ca does not list these three under Paul. Confirm he is an agent on them, and get the listing brokerage's written OK to show them.</div>
+      <div class="pos-grid reveal">
+        <article class="pcard">
+          <img src="img/rosebank.jpg" alt="Front of 363 Rosebank Road, a three-storey stone and stucco custom home" width="1040" height="693" loading="lazy">
+          <div class="pc-body"><span class="pc-area">Pickering, ON · MLS® E13874286</span><span class="pc-price">$1,749,000</span><span class="pc-addr">363 Rosebank Road</span><span class="pc-specs">4+1 beds · 5 baths · 3,500+ sq ft</span></div>
+        </article>
+        <article class="pcard">
+          <img src="img/hooper.jpg" alt="Front of 201 Hooper Street, a brick and stone townhouse with a black garage door" width="1040" height="693" loading="lazy">
+          <div class="pc-body"><span class="pc-area">St. Marys, ON · MLS® X13834446</span><span class="pc-price">$529,000</span><span class="pc-addr">201 Hooper Street</span><span class="pc-specs">3 beds · 2 baths · 1,100–1,500 sq ft</span></div>
+        </article>
+        <article class="pcard">
+          <img src="img/dominion.jpg" alt="Front of 725 Dominion Road, a sage-sided detached home with a wide wooden deck" width="1040" height="693" loading="lazy">
+          <div class="pc-body"><span class="pc-area">Fort Erie, ON · MLS® X13841366</span><span class="pc-price">$399,000</span><span class="pc-addr">725 Dominion Road</span><span class="pc-specs">3 beds · 1 bath · 1,100+ sq ft</span></div>
+        </article>
+      </div>
+      <div class="points reveal">
+        <div><b>The lender is the seller.</b><span>Decisions are made on business terms. A strong offer gets a clear answer.</span></div>
+        <div><b>Quick closings are possible.</b><span>There is no owner to move out and no sale-of-home condition.</span></div>
+        <div><b>It is a normal MLS® sale.</b><span>No auction and no courtroom. Offers go in through MLS® with the lender's schedule attached.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="help" id="help">
+    <div class="wrap">
+      <div>
+        <p class="kicker">How Paul helps</p>
+        <h2>Buy, sell, or just <em>ask</em></h2>
+      </div>
+      <div>
+        <div class="help-row"><h3>Buying a home</h3><p>Tell Paul what you need and your budget. He finds homes that fit, books the showings, and writes and negotiates your offer.</p></div>
+        <div class="help-row"><h3>Selling your home</h3><p>Paul shows you what similar homes nearby have sold for, sets a price with you, and lists your home on MLS® so every agent can bring a buyer.</p></div>
+        <div class="help-row"><h3>Power-of-sale homes</h3><p>Buying from a lender works a little differently. Paul can explain the lender's schedule, how offers are reviewed, and how quickly you can close.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <img src="img/logo.png" alt="Paul Pabla Realty logo" width="200" height="200">
+      <div class="copy reveal">
+        <p class="kicker">About</p>
+        <h2>Paul <em>Pabla</em></h2>
+        <p>Paul Pabla is a Sales Representative with HomeLife/Miracle Realty Ltd., Brokerage, in Toronto. He speaks English, Punjabi and Hindi, and has homes for sale from Toronto and Markham out to Durham Region, Bradford, Norfolk and Kawartha Lakes.</p>
+        <div class="note" role="note"><b>Before this goes public:</b> add Paul's photo, how long he has been in real estate, and the areas he works most.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <p class="big-line">Thinking about a <em>move?</em> Call or text Paul.</p>
+      <div class="ways reveal">
+        <div class="way">
+          <small>Phone and text</small>
+          <span class="value" id="phone">416-564-3222</span>
+          <div class="row-btns">
+            <a class="btn btn-solid" href="tel:+14165643222">Call</a>
+            <a class="btn btn-outline" href="sms:+14165643222">Text</a>
+            <button class="btn btn-outline" type="button" id="copy-phone" data-copy="416-564-3222" data-target="phone">Copy</button>
+          </div>
+        </div>
+        <div class="way">
+          <small>Email</small>
+          <span class="value" id="email">paulpablarealty@gmail.com</span>
+          <div class="row-btns">
+            <a class="btn btn-solid" href="mailto:paulpablarealty@gmail.com">Email</a>
+            <button class="btn btn-outline" type="button" id="copy-email" data-copy="paulpablarealty@gmail.com" data-target="email">Copy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+</div>
+
+<div id="view-homes" hidden>
+  <header class="bar">
+    <nav class="nav wrap" aria-label="Main">
+      <a class="brand" href="#top"><img src="img/logo.png" alt="" width="40" height="40"><span>Paul Pabla</span></a>
+      <div class="links">
+        <a href="#homes" aria-current="page">Listings</a>
+        <a class="opt" href="#help">Buy &amp; sell</a>
+        <a class="opt" href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+  <main class="all">
+    <div class="wrap">
+      <a class="back" href="#top">← Home</a>
+      <p class="kicker">For sale now</p>
+      <h1>All of Paul's <em>listings</em></h1>
+      <p class="all-sum" id="l-sum" aria-live="polite"></p>
+      <div class="tools">
+        <div class="chips" id="chips" role="group" aria-label="Filter by area"></div>
+        <label class="sort" for="sort">Sort
+          <select id="sort">
+            <option value="new">Newest</option>
+            <option value="lo">Price, low to high</option>
+            <option value="hi">Price, high to low</option>
+          </select>
+        </label>
+      </div>
+      <div class="cards" id="cards"></div>
+      <div class="list-foot">
+        <a class="btn btn-outline" href="https://www.realtor.ca/agent/2025830/paul-pabla-11a-5010-steeles-ave-west-toronto-ontario-m9v5c6" target="_blank" rel="noopener">Paul's profile on REALTOR.ca ↗</a>
+        <p class="asof">Listing details and photos from Paul's REALTOR.ca listings on November 13, 2026. Prices and availability can change.</p>
+      </div>
+      <p class="pos-link">Looking for the three power-of-sale homes? <a href="#pos">See them on the home page</a>.</p>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand"><img src="img/logo.png" alt="" width="52" height="52"><div><b>Paul Pabla</b><span>Sales Representative</span></div></div>
+      <div class="foot-cols">
+        <div><p class="fh">Listings</p><a href="#homes">All homes</a><a href="#pos">Power of sale</a><a href="https://www.realtor.ca/agent/2025830/paul-pabla-11a-5010-steeles-ave-west-toronto-ontario-m9v5c6" target="_blank" rel="noopener">REALTOR.ca profile ↗</a></div>
+        <div><p class="fh">Brokerage</p><p>HomeLife/Miracle Realty Ltd., Brokerage<br>11A-5010 Steeles Ave. West<br>Toronto, ON M9V 5C6<br>Office 416-747-9777</p></div>
+        <div><p class="fh">Contact</p><a href="tel:+14165643222">416-564-3222</a><a href="mailto:paulpablarealty@gmail.com">paulpablarealty@gmail.com</a></div>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span class="chip-logo"><img src="img/homelife.png" alt="HomeLife" width="110" height="46"></span>
+      <p>Not intended to solicit buyers or sellers currently under contract with a brokerage. Listing details are believed accurate but not guaranteed; prices and availability can change.</p>
+      <p>The trademarks MLS®, Multiple Listing Service® and REALTOR® are owned or controlled by The Canadian Real Estate Association (CREA) and identify its members and the services they provide.</p>
+      <p>Skyline video by Luis Ruiz on Pexels.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// shortcut: copied by hand from Paul's REALTOR.ca profile on 2026-11-13; swap for the DDF member feed once Paul sets it up.
+// p price, a address, c city, n neighbourhood, r region, bd beds, ba baths, sf square feet, u REALTOR.ca listing path
+var HOMES = [
+  { p: 799000,  a: "186 St Joseph Road",          c: "Kawartha Lakes", n: "Lindsay",          r: "Kawartha Lakes", bd: "4",   ba: "5", sf: "3,000+", u: "30486187/186-st-joseph-road-kawartha-lakes-lindsay" },
+  { p: 1139000, a: "5691 Main Street",            c: "Clarington",     n: "Orono",            r: "Durham Region",  bd: "3+1", ba: "5", sf: "2,500+", u: "30485679/5691-main-street-clarington-orono" },
+  { p: 1189000, a: "5277 Old Scugog Road",        c: "Clarington",     n: "",                 r: "Durham Region",  bd: "4+2", ba: "4", sf: "3,000+", u: "30485181/5277-old-scugog-road-clarington-rural-clarington" },
+  { p: 869000,  a: "42 Arthur McLaughlin Street", c: "Clarington",     n: "Bowmanville",      r: "Durham Region",  bd: "4",   ba: "4", sf: "2,500+", u: "30484971/42-arthur-mclaughlin-street-clarington-bowmanville" },
+  { p: 1169000, a: "67 Sunnyside Hill Road",      c: "Markham",        n: "Cornell",          r: "York Region",    bd: "4",   ba: "4", sf: "2,500+", u: "30480730/67-sunnyside-hill-road-markham-cornell" },
+  { p: 2099000, a: "86 Woodland Drive Pine",      c: "Norfolk",        n: "Pine Grove",       r: "Norfolk County", bd: "4",   ba: "4", sf: "5,000+", u: "30473069/86-woodland-drive-pine-norfolk-pine-grove" },
+  { p: 1099000, a: "148 Milby Crescent",          c: "Bradford West Gwillimbury", n: "Bradford", r: "Simcoe County", bd: "4", ba: "4", sf: "3,000+", u: "30462454/148-milby-crescent-bradford-west-gwillimbury-bradford" },
+  { p: 799000,  a: "42 August Avenue",            c: "Toronto",        n: "Oakridge",         r: "Toronto",        bd: "4+1", ba: "4", sf: "2,000+", u: "30459365/42-august-avenue-toronto-oakridge" },
+  { p: 799000,  a: "40 August Avenue",            c: "Toronto",        n: "Oakridge",         r: "Toronto",        bd: "4+1", ba: "5", sf: "2,000+", u: "30459047/40-august-avenue-toronto-oakridge" },
+  { p: 899000,  a: "20 Shaneen Boulevard",        c: "Toronto",        n: "Wexford-Maryvale", r: "Toronto",        bd: "3+2", ba: "2", sf: "700+",   u: "30456339/20-shaneen-boulevard-toronto-wexford-maryvale" },
+  { p: 1039000, a: "1786 Westcreek Drive",        c: "Pickering",      n: "Highbush",         r: "Durham Region",  bd: "4+1", ba: "4", sf: "2,000+", u: "30426974/1786-westcreek-drive-pickering-highbush" },
+  { p: 749000,  a: "161 Cathedral Drive",         c: "Whitby",         n: "Rolling Acres",    r: "Durham Region",  bd: "3",   ba: "3", sf: "1,500+", u: "30422994/161-cathedral-drive-whitby-rolling-acres" },
+  { p: 1699000, a: "10 Yorkton Boulevard",        c: "Markham",        n: "Angus Glen",       r: "York Region",    bd: "4+1", ba: "4", sf: "2,500+", u: "30396632/10-yorkton-boulevard-markham-angus-glen" },
+  { p: 839000,  a: "534 Windfields Farm Drive W", c: "Oshawa",         n: "Windfields",       r: "Durham Region",  bd: "4",   ba: "3", sf: "2,000+", u: "30181634/534-windfields-farm-drive-w-oshawa-windfields" },
+  { p: 979000,  a: "1600 Rockaway Street",        c: "Oshawa",         n: "Taunton",          r: "Durham Region",  bd: "4+3", ba: "5", sf: "2,000+", u: "30180475/1600-rockaway-street-oshawa-taunton" }
+];
+var REGIONS = ["All areas", "Toronto", "York Region", "Durham Region", "Simcoe County", "Norfolk County", "Kawartha Lakes"];
+
+function money(n) { return "$" + n.toLocaleString("en-CA"); }
+function short(n) { return n >= 1e6 ? "$" + (n / 1e6).toFixed(2).replace(/\.?0+$/, "") + "M" : "$" + Math.round(n / 1000) + "K"; }
+console.assert(short(2099000) === "$2.1M" && short(749000) === "$749K" && short(1189000) === "$1.19M" && short(2000000) === "$2M", "short() price format");
+function uniq(a) { return a.filter(function (v, i) { return a.indexOf(v) === i; }); }
+function range(list) { var ps = list.map(function (h) { return h.p; }); var lo = Math.min.apply(null, ps), hi = Math.max.apply(null, ps); return lo === hi ? short(lo) : short(lo) + " to " + short(hi); }
+function inRegion(r) { return r === "All areas" ? HOMES : HOMES.filter(function (h) { return h.r === r; }); }
+function setText(id, t) { document.getElementById(id).textContent = t; }
+
+function photo(h) { return "img/homes/" + h.u.split("/")[0] + ".jpg"; }
+function card(h) {
+  var s = h.ba === "1" ? "bath" : "baths";
+  return '<a class="card" href="https://www.realtor.ca/real-estate/' + h.u + '" target="_blank" rel="noopener">' +
+    '<span class="ph"><img src="' + photo(h) + '" alt="' + h.a + ', ' + h.c + '" loading="lazy"></span>' +
+    '<span class="c-area">' + h.c + (h.n ? " · " + h.n : "") + '</span>' +
+    '<span class="c-price">' + money(h.p) + '</span>' +
+    '<span class="c-addr">' + h.a + '</span>' +
+    '<span class="c-specs">' + h.bd + ' beds · ' + h.ba + ' ' + s + ' · ' + h.sf + ' sq ft</span>' +
+    '<span class="c-go">View on REALTOR.ca ↗</span></a>';
+}
+// A photo that is not 4:3 is shown whole over a blurred copy of itself, so nothing is stretched or cut off.
+function fitPhoto(im) {
+  if (!im.naturalWidth || Math.abs(im.naturalWidth / im.naturalHeight - 4 / 3) < 0.04) return;
+  im.parentNode.style.backgroundImage = 'url("' + im.getAttribute("src") + '")';
+  im.parentNode.classList.add("fit");
+}
+function fill(id, list) {
+  var box = document.getElementById(id);
+  box.innerHTML = list.map(card).join("");
+  [].forEach.call(box.querySelectorAll(".ph img"), function (im) {
+    if (im.complete) fitPhoto(im); else im.addEventListener("load", function () { fitPhoto(im); });
+  });
+}
+
+// The all-listings page: area chips and a sort order over the same list.
+var state = { region: "All areas", sort: "new" };
+function renderAll() {
+  var list = inRegion(state.region).slice();
+  if (state.sort === "lo") list.sort(function (a, b) { return a.p - b.p; });
+  if (state.sort === "hi") list.sort(function (a, b) { return b.p - a.p; });
+  fill("cards", list);
+  setText("l-sum", list.length + (list.length === 1 ? " home" : " homes") + (state.region === "All areas" ? "" : " in " + state.region) + " · " + range(list));
+  [].forEach.call(document.querySelectorAll(".chip-btn"), function (b) { b.setAttribute("aria-pressed", b.dataset.r === state.region ? "true" : "false"); });
+}
+document.getElementById("chips").innerHTML = REGIONS.map(function (r) {
+  return '<button class="chip-btn" type="button" data-r="' + r + '">' + r + '<span class="n">' + inRegion(r).length + '</span></button>';
+}).join("");
+document.getElementById("chips").addEventListener("click", function (e) {
+  var b = e.target.closest(".chip-btn"); if (b) { state.region = b.dataset.r; renderAll(); }
+});
+document.getElementById("sort").addEventListener("change", function (e) { state.sort = e.target.value; renderAll(); });
+renderAll();
+
+// Home page: the area list previews each area in the panel and opens the all-listings page on that area.
+function panel(region) {
+  var list = inRegion(region);
+  setText("p-name", region);
+  setText("p-count", list.length);
+  setText("p-range", range(list));
+  setText("p-towns", uniq(list.map(function (h) { return h.c; })).join(" · "));
+}
+var areaList = document.getElementById("area-list");
+areaList.innerHTML = REGIONS.map(function (r) {
+  return '<button class="area-btn" type="button" data-r="' + r + '"><span>' + r + '</span><span class="n">' + inRegion(r).length + ' →</span></button>';
+}).join("");
+["pointerover", "focusin"].forEach(function (ev) {
+  areaList.addEventListener(ev, function (e) { var b = e.target.closest(".area-btn"); if (b) panel(b.dataset.r); });
+});
+areaList.addEventListener("pointerleave", function () { panel("All areas"); });
+areaList.addEventListener("click", function (e) {
+  var b = e.target.closest(".area-btn");
+  if (b) { state.region = b.dataset.r; renderAll(); location.hash = "#homes"; }
+});
+panel("All areas");
+fill("featured", HOMES.slice(0, 6));
+setText("a-count", HOMES.length);
+
+// Two views in one file: the home page, and the all-listings page at #homes.
+function route() {
+  var onHomes = location.hash === "#homes";
+  document.getElementById("view-home").hidden = onHomes;
+  document.getElementById("view-homes").hidden = !onHomes;
+  if (onHomes) window.scrollTo({ top: 0, behavior: "instant" });
+  else if (location.hash.length > 1) { var el = document.getElementById(location.hash.slice(1)); if (el) el.scrollIntoView(); }
+}
+window.addEventListener("hashchange", route);
+route();
+
+setText("h-count", HOMES.length); setText("f-count", HOMES.length);
+setText("h-range", range(HOMES));
+setText("f-towns", uniq(HOMES.map(function (h) { return h.c; })).length);
+setText("f-low", short(Math.min.apply(null, HOMES.map(function (h) { return h.p; }))));
+
+// Dusk time-lapse behind the hero. Two copies of the clip dissolve into each other, so the loop never cuts
+// from night back to sunset. People who ask for reduced motion keep the still frame.
+(function () {
+  var vids = [].slice.call(document.querySelectorAll(".hero-media video"));
+  if (vids.length < 2 || !matchMedia("(prefers-reduced-motion: no-preference)").matches) return;
+  var FADE = 1.6, cur = 0;
+  function start(v) { try { v.currentTime = 0; } catch (e) {} var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+  vids.forEach(function (v, i) {
+    v.muted = true;
+    v.src = "media/toronto-dusk.mp4";
+    v.addEventListener("timeupdate", function () {
+      if (i !== cur || !v.duration || v.currentTime < v.duration - FADE - 0.4) return;
+      var next = vids[1 - i];
+      cur = 1 - i;
+      start(next);
+      next.classList.add("on", "top");
+      v.classList.remove("top");
+      setTimeout(function () { v.classList.remove("on"); v.pause(); }, FADE * 1000 + 200);
+    });
+  });
+  vids[0].addEventListener("playing", function () { vids[0].classList.add("on", "top"); }, { once: true });
+  start(vids[0]);
+})();
+
+// The band's numbers count up once when it scrolls into view; they rest at their final values either way.
+function countUp() {
+  document.querySelectorAll(".fig-grid b").forEach(function (b) {
+    var end = b.textContent, m = end.match(/^(\D*)(\d+)(.*)$/);
+    if (!m) return;
+    var n = +m[2], t0 = performance.now();
+    (function tick(t) {
+      var k = Math.min(1, (t - t0) / 1200), e = 1 - Math.pow(1 - k, 3);
+      b.textContent = k < 1 ? m[1] + Math.round(n * e) + m[3] : end;
+      if (k < 1) requestAnimationFrame(tick);
+    })(t0);
+  });
+}
+if ("IntersectionObserver" in window && matchMedia("(prefers-reduced-motion: no-preference)").matches) {
+  new IntersectionObserver(function (es, o) { if (es[0].isIntersecting) { o.disconnect(); countUp(); } }, { threshold: 0.4 }).observe(document.querySelector(".fig-grid"));
+}
+
+document.querySelectorAll("[data-copy]").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var label = b.textContent;
+    function flash(t) { b.textContent = t; setTimeout(function () { b.textContent = label; }, 1800); }
+    function select() {
+      var rg = document.createRange(); rg.selectNodeContents(document.getElementById(b.dataset.target));
+      var s = getSelection(); s.removeAllRanges(); s.addRange(rg); flash("Selected");
+    }
+    try { navigator.clipboard.writeText(b.dataset.copy).then(function () { flash("Copied"); }, select); }
+    catch (e) { select(); }
+  });
+});
+</script>
+
+</html>
